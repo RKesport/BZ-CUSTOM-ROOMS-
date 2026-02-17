@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>BZ CUSTOM ROOMS - Login</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BZ Custom Rooms</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="login-page">
+<div class="container">
 
-<div class="overlay"></div>
-
-<div class="login-box">
     <img src="logo.png" class="logo">
-    <h2>ENTER THE BATTLE</h2>
 
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+    <h1>BZ CUSTOM ROOMS</h1>
+    <p class="number">03302281172</p>
 
-    <button onclick="login()">LOGIN</button>
-</div>
+    <div class="buttons">
+        <a href="https://wa.me/923302281172" class="btn">Register via WhatsApp</a>
+        <button onclick="openAdmin()" class="btn admin-btn">Admin Login</button>
+    </div>
 
-<div id="loading-screen">
-    <img src="logo.png" class="loading-logo">
-    <p>LOADING...</p>
 </div>
 
 <script src="script.js"></script>
