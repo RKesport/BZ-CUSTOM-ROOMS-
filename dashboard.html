@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BZ CUSTOM ROOMS - Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-page">
+
+<div class="overlay"></div>
+
+<img src="logo.png" class="main-logo">
+
+<!-- REGISTRATION -->
+<div class="card">
+    <h2>TEAM REGISTRATION</h2>
+
+    <input type="text" id="teamName" placeholder="Team Name">
+
+    <select id="map">
+        <option>Erangel</option>
+        <option>Miramar</option>
+        <option>Sanhok</option>
+        <option>Livik</option>
+        <option>Taego</option>
+    </select>
+
+    <select id="mode" onchange="updatePlayers()">
+        <option value="solo">Solo</option>
+        <option value="duo">Duo</option>
+        <option value="squad">Squad</option>
+    </select>
+
+    <div id="players"></div>
+
+    <button onclick="sendWhatsApp()">REGISTER</button>
+</div>
+
+<!-- POINTS TABLE -->
+<div class="card">
+    <h2>TOURNAMENT POINTS</h2>
+
+    <input type="text" id="teamInput" placeholder="Team Name">
+    <input type="number" id="winsInput" placeholder="Wins">
+    <input type="number" id="pointsInput" placeholder="Points">
+
+    <button onclick="adminCheck()">ADD TEAM</button>
+
+    <table id="pointsTable">
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Points</th>
+        </tr>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
