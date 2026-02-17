@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BZ Custom Rooms</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BZ CUSTOM ROOMS</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
+<img src="logo.png" class="logo">
+<h1>BZ CUSTOM ROOMS</h1>
 
-    <img src="logo.png" class="logo">
+<h2>Register Your Team</h2>
+<input type="text" id="teamName" placeholder="Team Name">
 
-    <h1>BZ CUSTOM ROOMS</h1>
-    <p class="number">03302281172</p>
+<select id="map">
+  <option>Erangel</option>
+  <option>Miramar</option>
+  <option>Sanhok</option>
+  <option>Livik</option>
+</select>
 
-    <div class="buttons">
-        <a href="https://wa.me/923302281172" class="btn">Register via WhatsApp</a>
-        <button onclick="openAdmin()" class="btn admin-btn">Admin Login</button>
-    </div>
+<select id="mode" onchange="updatePlayers()">
+  <option value="solo">Solo</option>
+  <option value="duo">Duo</option>
+  <option value="squad">Squad</option>
+</select>
 
+<div id="players"></div>
+<button onclick="registerTeam()" class="btn">Register Team</button>
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>

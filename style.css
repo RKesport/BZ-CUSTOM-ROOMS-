@@ -1,93 +1,33 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Rajdhani', sans-serif; }
+body {
+    background: url("background.jpg") no-repeat center center/cover;
+    min-height:100vh; display:flex; justify-content:center; align-items:center;
 }
-
-body{
-    background:url("background.jpg") no-repeat center center/cover;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.container {
+    background: rgba(0,0,0,0.85);
+    padding:25px; width:95%; max-width:450px;
+    border-radius:15px; text-align:center; color:white;
+    box-shadow:0 0 25px #00f2ff88; animation:glow 3s infinite alternate;
 }
+@keyframes glow { from{box-shadow:0 0 10px #00f2ff55;} to{box-shadow:0 0 25px #00f2ffcc;} }
 
-.container{
-    background:rgba(0,0,0,0.75);
-    padding:25px;
-    width:90%;
-    max-width:400px;
-    border-radius:15px;
-    text-align:center;
-    color:white;
-}
+.logo{ width:100px; margin-bottom:15px; }
 
-.logo{
-    width:100px;
-    margin-bottom:15px;
-}
-
-h1{
-    font-size:22px;
-    margin-bottom:5px;
-}
-
-.number{
-    font-size:14px;
-    margin-bottom:20px;
-    color:#00ffcc;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
+input, select{
+    width:100%; padding:12px; margin:10px 0; border:none; border-radius:8px;
 }
 
 .btn{
-    display:block;
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    background:#00ffcc;
-    color:black;
-    border:none;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
+    width:100%; padding:12px; margin-top:10px; background:#00f2ff; border:none;
+    font-weight:bold; cursor:pointer; border-radius:8px;
+}
+.btn:hover{ background:#00ccaa; }
+
+#players div, #pointsTable p{
+    margin:5px 0; background:rgba(0,255,255,0.1); padding:5px; border-radius:5px;
 }
 
-.btn:hover{
-    background:#00ccaa;
-}
-
-.admin-btn{
-    background:#ff4444;
-    color:white;
-}
-
-#playersList{
-    margin-top:20px;
-    text-align:left;
-}
-
-/* Mobile Optimization */
 @media (max-width:480px){
-
-    .container{
-        padding:20px;
-    }
-
-    h1{
-        font-size:18px;
-    }
-
-    .logo{
-        width:80px;
-    }
-
+    .container{ padding:15px; }
+    .logo{ width:80px; }
 }
