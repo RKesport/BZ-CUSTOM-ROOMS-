@@ -20,6 +20,7 @@ input, select{
 .btn{
     width:100%; padding:12px; margin-top:10px; background:#00f2ff; border:none;
     font-weight:bold; cursor:pointer; border-radius:8px;
+    transition:0.3s;
 }
 .btn:hover{ background:#00ccaa; }
 
