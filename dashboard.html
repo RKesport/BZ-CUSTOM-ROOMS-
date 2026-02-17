@@ -3,20 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard</title>
+<title>Dashboard - BZ CUSTOM ROOMS</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="container">
 
-<h2>Admin Login</h2>
-<input type="email" id="email" placeholder="Email">
-<input type="password" id="password" placeholder="Password">
-<button onclick="loginAdmin()" class="btn">Login</button>
-
-<hr>
-
+<h1>Dashboard</h1>
 <h2>Add / Update Points</h2>
 <input type="text" id="playerName" placeholder="Player Name">
 <input type="number" id="playerPoints" placeholder="Points">
@@ -24,8 +17,12 @@
 
 <hr>
 
-<h2>Live Tournament Table</h2>
+<h2>Live Points Table</h2>
+<input type="text" id="searchPlayer" placeholder="Search Player..." onkeyup="searchPlayers()">
 <div id="pointsTable"></div>
+
+<hr>
+<a href="register.html" class="btn">Go to Team Registration</a>
 
 </div>
 <script type="module" src="script.js"></script>
