@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<img src="logo.png" class="logo">
+<h1>Register Your Team</h1>
+
+<input type="text" id="teamName" placeholder="Team Name">
+
+<select id="map">
+  <option>Erangel</option>
+  <option>Miramar</option>
+  <option>Sanhok</option>
+  <option>Livik</option>
+</select>
+
+<select id="mode" onchange="updatePlayers()">
+  <option value="solo">Solo</option>
+  <option value="duo">Duo</option>
+  <option value="squad">Squad</option>
+</select>
+
+<div id="players"></div>
+<button onclick="registerTeam()" class="btn">Register Team</button>
+<p id="registerMsg" style="color:#0f0;"></p>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
