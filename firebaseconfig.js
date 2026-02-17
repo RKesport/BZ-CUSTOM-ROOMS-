@@ -1,4 +1,4 @@
-// 🔹 Firebase Config - Copy this from Firebase Console 🔹
+// 🔹 COPY THIS SECTION FROM FIREBASE CONSOLE 🔹
 export const firebaseConfig = {
   apiKey: "AIzaSyCzYJncMC7ejIvFSkL2RaWU3Ma-0p9pdBY",
   authDomain: "bz-custom-rooms.firebaseapp.com",
