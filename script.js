@@ -2,23 +2,29 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-import { firebaseConfig } from "./firebaseConfig.js"; // COPY SECTION
+import { firebaseConfig } from "./firebaseConfig.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// 🔹 Admin Login
+// 🔹 Login Page
 window.loginAdmin = function(){
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const errorMsg = document.getElementById("loginError");
 
   signInWithEmailAndPassword(auth,email,password)
-  .then(()=>{ alert("Login Success"); })
-  .catch(()=>{ alert("Login Failed"); });
+  .then(()=>{
+    errorMsg.textContent = "";
+    window.location.href="dashboard.html";
+  })
+  .catch((err)=>{
+    errorMsg.textContent = "Login Failed: "+err.message;
+  });
 }
 
-// 🔹 Tournament Registration
+// 🔹 Registration Page
 window.updatePlayers = function(){
   const mode = document.getElementById("mode").value;
   const div = document.getElementById("players");
@@ -45,30 +51,40 @@ window.registerTeam = async function(){
   }
 
   await addDoc(collection(db,"teams"),{team, map, mode, players});
-  alert("Team Registered!");
+  document.getElementById("registerMsg").textContent = "Team Registered Successfully!";
 }
 
-// 🔹 Admin: Add / Update Points
+// 🔹 Admin Dashboard Points
 window.addPoints = async function(){
   const name = document.getElementById("playerName").value;
   const points = Number(document.getElementById("playerPoints").value);
 
   await addDoc(collection(db,"players"),{name, points});
-  alert("Points Added");
 }
 
-// 🔹 Live Points Table with Auto Ranking
-const q = query(collection(db,"players"), orderBy("points","desc"));
-onSnapshot(q, snapshot=>{
-  const table = document.getElementById("pointsTable");
-  if(!table) return;
-  table.innerHTML="";
-  let rank=1;
-  snapshot.forEach(doc=>{
-    const data = doc.data();
-    const p = document.createElement("p");
-    p.textContent = `${rank}. ${data.name} - ${data.points} Points`;
-    table.appendChild(p);
-    rank++;
+// 🔹 Live Points Table
+const pointsTable = document.getElementById("pointsTable");
+if(pointsTable){
+  const q = query(collection(db,"players"), orderBy("points","desc"));
+  onSnapshot(q, snapshot=>{
+    pointsTable.innerHTML="";
+    let rank=1;
+    snapshot.forEach(doc=>{
+      const data = doc.data();
+      const p = document.createElement("p");
+      p.textContent = `${rank}. ${data.name} - ${data.points} Points`;
+      pointsTable.appendChild(p);
+      rank++;
+    });
   });
-});
+}
+
+// 🔹 Search Players
+window.searchPlayers = function(){
+  const filter = document.getElementById("searchPlayer").value.toLowerCase();
+  const rows = pointsTable.getElementsByTagName("p");
+  for(let i=0;i<rows.length;i++){
+    const text = rows[i].textContent.toLowerCase();
+    rows[i].style.display = text.includes(filter) ? "" : "none";
+  }
+}
